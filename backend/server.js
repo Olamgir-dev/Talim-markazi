@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const teacherRouter = require("./routes/teacherRouter");
 
 dotenv.config();
 
@@ -19,15 +20,15 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/teachers", teacherRouter);
 
 mongoose
   .connect(url)
   .then(() => {
-      app.listen(port, () => {  
-        console.log(`Server ${port} portda ishga tushdi va MongoDB ga ulandi`);
-      });
+    app.listen(port, () => {
+      console.log(`Server ${port} portda ishga tushdi va MongoDB ga ulandi`);
+    });
   })
   .catch((err) => {
     console.log(err);
   });
-
