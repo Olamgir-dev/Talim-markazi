@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 mongoose
   .connect(url)
   .then(() => {
-      app.listen(port, () => {
+      app.listen(port, () => {  
         console.log(`Server ${port} portda ishga tushdi va MongoDB ga ulandi`);
       });
   })

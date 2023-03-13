@@ -19,7 +19,7 @@ const teacherSchema = new mongoose.Schema(
       required: true,
     },
     IELTS: {
-      type: String,
+      type: Number,
       required: true,
     },
   },
