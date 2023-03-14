@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const student = require("./routes/studentRouter");
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const url = process.env.MONGO_URI;
 // MiddelWare
 app.use(express.json());
 app.use(cors());
+app.use("/student", student);
 
 app.use((req, res, next) => {
   console.log(`${req.method}: ${req.path}`);
@@ -23,9 +25,9 @@ app.use((req, res, next) => {
 mongoose
   .connect(url)
   .then(() => {
-      app.listen(port, () => {
-        console.log(`Server ${port} portda ishga tushdi va MongoDB ga ulandi`);
-      });
+    app.listen(port, () => {
+      console.log(`Server ${port} portda ishga tushdi va MongoDB ga ulandi`);
+    });
   })
   .catch((err) => {
     console.log(err);
