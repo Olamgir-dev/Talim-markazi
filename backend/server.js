@@ -3,6 +3,7 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const teacherRouter = require("./routes/teacherRouter");
 const student = require("./routes/studentRouter");
 
 dotenv.config();
@@ -21,6 +22,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use("/teachers", teacherRouter);
 
 mongoose
   .connect(url)
@@ -32,4 +34,3 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
