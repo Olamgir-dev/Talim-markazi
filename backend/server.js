@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const teacherRouter = require("./routes/teacherRouter");
 const student = require("./routes/studentRouter");
+const groupRouter  = require('./routes/groupRouter')
 
 dotenv.config();
 
@@ -13,16 +14,17 @@ const port = process.env.PORT || 5000;
 const url = process.env.MONGO_URI;
 
 // MiddelWare
-app.use(express.json());
-app.use(cors());
-app.use("/student", student);
-
 app.use((req, res, next) => {
   console.log(`${req.method}: ${req.path}`);
   next();
 });
+app.use(express.json());
+app.use(cors());
 
+// APIs
+app.use("/student", student);
 app.use("/teachers", teacherRouter);
+app.use('/group', groupRouter)
 
 mongoose
   .connect(url)
