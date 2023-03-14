@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const teacherRouter = require("./routes/teacherRouter");
+const student = require("./routes/studentRouter");
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ const url = process.env.MONGO_URI;
 // MiddelWare
 app.use(express.json());
 app.use(cors());
+app.use("/student", student);
 
 app.use((req, res, next) => {
   console.log(`${req.method}: ${req.path}`);

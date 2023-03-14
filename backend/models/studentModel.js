@@ -19,11 +19,11 @@ const studentSchema = mongoose.Schema({
   },
   groupId: {
     type: String,
-    required: true,
+    required: false,
   },
   examScore: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
