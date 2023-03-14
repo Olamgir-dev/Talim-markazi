@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const bcrypt = require("bcrypt");
 
 const studentSchema = mongoose.Schema({
-  firstName: {
+  firstname: {
     type: String,
     required: true,
   },
-  lastName: {
+  lastname: {
     type: String,
     required: true,
   },
@@ -20,13 +21,13 @@ const studentSchema = mongoose.Schema({
   groupId: {
     type: String,
     required: false,
+    default: ''
   },
   examScore: {
-    type: String,
+    type: Number,
     required: false,
   },
 });
-
 
 studentSchema.statics.login = async function (req) {
   const email = req.body.email;
@@ -43,6 +44,6 @@ studentSchema.statics.login = async function (req) {
   }
 
   return student;
-}
+};
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model("Student", studentSchema);

@@ -15,10 +15,10 @@ const teacherSchema = new mongoose.Schema(
       required: true,
     },
     password: {
-      type: Number,
+      type: String,
       required: true,
     },
-    IELTS: {
+    ielts: {
       type: Number,
       required: true,
     },
