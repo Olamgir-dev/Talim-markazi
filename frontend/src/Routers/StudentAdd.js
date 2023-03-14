@@ -1,11 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import img2 from '../Images/svg/image2.svg'
 import google from '../Images/icons/google.png'
 import linkedin from '../Images/icons/linkedin.png'
 import github from '../Images/icons/github.png'
 import facebook from '../Images/icons/facebook.png'
-
+  
 function StudentAdd() {
+  const [name, setName] = useState('')
+  const handlechange = (e) => {
+    const name=e.target.name
+    const value=e.target.value
+    setName(...name,)
+  }
   return (
     <div className='register-div'>
         <div className='container-register'>
@@ -19,10 +25,10 @@ function StudentAdd() {
                 <h1>Student<span>ADD</span></h1>
               </div>
               <form>
-                <input type="text" name='firstname' placeholder='FirstName' />
-                <input type="text" name='lastname' placeholder='Lastname' />
-                <input type="email" name='email' placeholder='Email' />
-                <input type="password" name='password' placeholder='Password' />
+                <input type="text" name='firstname' placeholder='FirstName'onChange={handlechange} />
+                <input type="text" name='lastname' placeholder='Lastname'onChange={handlechange} />
+                <input type="email" name='email' placeholder='Email'onChange={handlechange} />
+                <input type="password" name='password' placeholder='Password'onChange={handlechange} />
                 <div className='text-social'>
                   <div></div><p> or </p><div></div>
                 </div>
