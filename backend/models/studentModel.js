@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require("validator");
+const bcrypt = require("bcrypt");
+
 
 const studentSchema = mongoose.Schema({
   firstname: {
@@ -21,12 +23,14 @@ const studentSchema = mongoose.Schema({
   groupId: {
     type: String,
     required: false,
+    default: ''
   },
   examScore: {
     type: Number,
     required: false,
   },
 });
+
 
 studentSchema.statics.addStudent = async function (req) {
   const { email, password } = req.body;
@@ -53,6 +57,7 @@ studentSchema.statics.addStudent = async function (req) {
 };
 
 
+
 studentSchema.statics.login = async function (req) {
   const email = req.body.email;
   const password = req.body.password;
@@ -68,6 +73,6 @@ studentSchema.statics.login = async function (req) {
   }
 
   return student;
-}
+};
 
-module.exports = mongoose.model('Student', studentSchema);
+module.exports = mongoose.model("Student", studentSchema);
