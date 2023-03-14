@@ -6,23 +6,23 @@ const savolSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        variant1: {
+        option1: {
             type: String,
             required: true
         },
-        variant2: {
+        option2: {
             type: String,
             required: true
         },
-        variant3: {
+        option3: {
             type: String,
             required: true
         },
-        variant4: {
+        option4: {
             type: String,
             required: true
         },
-        togriJavob: {
+        correctAnswer: {
             type: String,
             required: true
         },
