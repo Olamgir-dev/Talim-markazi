@@ -4,13 +4,26 @@ import google from '../Images/icons/google.png'
 import linkedin from '../Images/icons/linkedin.png'
 import github from '../Images/icons/github.png'
 import facebook from '../Images/icons/facebook.png'
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
   
 function StudentAdd() {
-  const [name, setName] = useState('')
-  const handlechange = (e) => {
-    const name=e.target.name
-    const value=e.target.value
-    setName(...name,)
+  const [user, setUser] = useState({})
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setUser({...user, [e.target.name]: e.target.value})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    axios.post("http://localhost:5000/student/add", user)
+      .then((res) => {
+        console.log(res.data);
+        navigate('/')
+      })
+      .catch((err) => console.log(err))
   }
   return (
     <div className='register-div'>
@@ -24,11 +37,11 @@ function StudentAdd() {
               <div className='text'>
                 <h1>Student<span>ADD</span></h1>
               </div>
-              <form>
-                <input type="text" name='firstname' placeholder='FirstName'onChange={handlechange} />
-                <input type="text" name='lastname' placeholder='Lastname'onChange={handlechange} />
-                <input type="email" name='email' placeholder='Email'onChange={handlechange} />
-                <input type="password" name='password' placeholder='Password'onChange={handlechange} />
+              <form onSubmit={handleSubmit}>
+                <input type="text" name='firstname' placeholder='FirstName'onChange={handleChange} />
+                <input type="text" name='lastname' placeholder='Lastname'onChange={handleChange} />
+                <input type="email" name='email' placeholder='Email'onChange={handleChange} />
+                <input type="password" name='password' placeholder='Password'onChange={handleChange} />
                 <div className='text-social'>
                   <div></div><p> or </p><div></div>
                 </div>
