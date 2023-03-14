@@ -2,19 +2,19 @@ const mongoose = require("mongoose");
 
 const examSchema = new mongoose.Schema(
     {
-        groupID: {
+        groupId: {
             type: String,
             required: true
         },
-        sana: {
-            type: Number,
+        date: {
+            type: Date,
             required: true
         },
-        vaqt: {
-            type: Number,
+        time: {
+            type: String,
             required: true
         },
-        davomiylik: {
+        duration: {
             type: Number,
             required: true
         },
