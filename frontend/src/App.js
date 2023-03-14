@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import TeacherAdd from './Routers/TeacherAdd';
 import StudentAdd from './Routers/StudentAdd';
 import "./sass/style.scss"
+import GroupAdd from './Routers/GroupAdd';
+import ShowGroups from './Routers/ShowGroups';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
           <Route index element={<Home />}/>
           <Route path='/teacher-add' element={<TeacherAdd />}/>
           <Route path='/student-add' element={<StudentAdd />} />
+          <Route path='/group-add' element={<GroupAdd />} />
+          <Route path='/group-show' element={<ShowGroups />} />
         </Routes>
       </BrowserRouter>
     </>
