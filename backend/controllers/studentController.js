@@ -12,11 +12,12 @@ const login = async (req, res) => {
 }
 
 const addStudent = async (req, res) => {
-   const newStudent = await new Student(req.body);
-   newStudent
-      .save()
-      .then((result) => res.status(200).json(result))
-      .catch((error) => console.log(error))
-}
+    try {
+        const newStudent = await Student.addStudent(req);
+        res.status(200).json(newStudent);
+    } catch (error) {
+        res.status(400).json({ msg: error.message });
+    }
+};
 
 module.exports = { login, addStudent };

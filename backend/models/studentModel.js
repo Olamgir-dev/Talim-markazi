@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require("validator");
 
 const studentSchema = mongoose.Schema({
   firstname: {
@@ -26,6 +27,30 @@ const studentSchema = mongoose.Schema({
     required: false,
   },
 });
+
+studentSchema.statics.addStudent = async function (req) {
+  const { email, password } = req.body;
+
+  if (!validator.isEmail(email)) {
+    throw Error("Email formati noto'g'ri");
+  }
+  if (!validator.isStrongPassword(password)) {
+    throw Error("Password mustahkam emas");
+  }
+
+  const isExist = await this.findOne({ email });
+  if (isExist) {
+    throw Error("Bunday email mavjud");
+  }
+
+
+  const salt = await bcrypt.genSalt(10);
+  const encryptedPassword = await bcrypt.hash(password, salt);
+
+ 
+  const newStudent = await this.create({...req.body,password: encryptedPassword, });
+  return newStudent;
+};
 
 
 studentSchema.statics.login = async function (req) {
