@@ -1,8 +1,9 @@
 const express = require('express')
-const {addGroup} =  require('../controllers/groupController')
+const {addGroup, getAllGroups} =  require('../controllers/groupController')
 
 const router = express.Router()
 
-router.post('/add', addGroup)
+router.get('/', getAllGroups);
+router.post('/add', addGroup);
 
 module.exports = router
