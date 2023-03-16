@@ -2,6 +2,10 @@ const validator = require('validator');
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+
+
+
+
 const studentSchema = mongoose.Schema({
   firstname: {
     type: String,
@@ -30,6 +34,7 @@ const studentSchema = mongoose.Schema({
   },
 });
 
+
 studentSchema.statics.addStudent = async function (req) {
   const { email, password } = req.body;
 
@@ -53,6 +58,7 @@ studentSchema.statics.addStudent = async function (req) {
   const newStudent = await this.create({...req.body,password: encryptedPassword, });
   return newStudent;
 };
+
 
 
 studentSchema.statics.login = async function (req) {
