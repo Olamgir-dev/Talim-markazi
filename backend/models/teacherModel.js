@@ -26,4 +26,15 @@ const teacherSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+teacherSchema.statics.login = async function (req){
+  const email = req.body.email;
+  const password = req.body.password;
+  const Teacher = await this.findOne({email});
+
+  if(!Teacher){
+    throw Error("Bunday email mavjud emas yoki parolingiz xato");
+  }
+  return Teacher;
+};
+
 module.exports = mongoose.model("Teacher", teacherSchema);
