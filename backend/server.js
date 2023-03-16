@@ -11,7 +11,7 @@ const examRouter = require('./routes/examRouter')
 dotenv.config();
 
 // Muhim malumotlarni env dan olib olish
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 5000;
 const url = process.env.MONGO_URI;
 
 // MiddelWare
