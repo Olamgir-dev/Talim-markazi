@@ -2,8 +2,9 @@ const Student = require('../models/studentModel');
 
 
 const joinGroup = async (req, res) => {
+    const {groupId, studentId} = req.body;
     try {
-        const student = await Student.join(req);
+        const student = await Student.findOneAndUpdate(groupId);
         res.status(200).json(student);
     }
     catch (error) {

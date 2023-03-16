@@ -31,6 +31,7 @@ studentaddSchema.statics.addStudent = async function (req) {
   const newUser = await this.create({
     ...req.body, 
     id: studentId,
+    
   })
   return newUser
 }
