@@ -27,7 +27,9 @@ function Navbar() {
                         <li className="nav-item">
                             <Link className="nav-link " to="/teacher-add" >Teacher Add</Link>
                         </li>
-
+                        <li className="nav-item">
+                            <Link className="nav-link " to="/exams" >Show Exams</Link>
+                        </li>
                     </ul>
                     <ul className="d-flex mb-2 mb-lg-0  nav  me-0">
                         <li className='nav-item'><Link className="nav-link" to="/student-login">Student Login</Link></li>
