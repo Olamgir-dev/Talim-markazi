@@ -26,4 +26,14 @@ const addTeacher = (req, res) => {
     });
 };
 
-module.exports = { getTeacher, addTeacher };
+// Teacher Login
+const loginTeacher = async (req, res) =>{
+  try{
+    const teacher = await Teacher.login(req);
+    res.status(200).json(teacher);
+  }catch(error){
+    res.status(400).json({msg: error.message});
+  }
+};
+
+module.exports = { getTeacher, addTeacher, loginTeacher };
