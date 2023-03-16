@@ -19,7 +19,8 @@ const groupSchema = new mongoose.Schema({
     },
     teacherId: {
         type: String,
-        required: true
+        required: false,
+        default:""
     }
 }, {timestamps: true})
 

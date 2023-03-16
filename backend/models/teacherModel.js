@@ -20,7 +20,7 @@ const teacherSchema = new mongoose.Schema(
     },
     ielts: {
       type: Number,
-      required: true,
+      required: false,
     },
   },
   { timestamps: true }
