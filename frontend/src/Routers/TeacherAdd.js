@@ -20,7 +20,7 @@ function TeacherAdd() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:5001/teachers/add', teacherInfo).then((res)=>{
+    axios.post('http://localhost:5000/teachers/add', teacherInfo).then((res)=>{
       console.log('qoshildi')
     }).catch((err) => {
       console.log('xatolik', err)
