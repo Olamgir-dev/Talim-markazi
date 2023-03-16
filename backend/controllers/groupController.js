@@ -17,4 +17,16 @@ const getAllGroups = async (req, res) => {
   }
 };
 
-module.exports = { addGroup,getAllGroups };
+const getTeacherGroups = async (req, res) => {
+  try{
+    const groups = await Group.find({teacherId: req.params.id})
+    res.status(200).json(groups);
+    console.log(req.params.id);
+  }catch(err){
+    res.status(400).json({ error: err.message });
+  }
+}
+
+
+
+module.exports = { addGroup,getAllGroups,getTeacherGroups};
