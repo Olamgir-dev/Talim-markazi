@@ -234,4 +234,31 @@
 .flex-div {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    font-weight: 400;
+    gap: 10px;
+}
+
+.fix-div{
+    width: 300px;
+    height: 600px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.flex-button{
+    color: black;
+    position: absolute;
+    bottom: 30px;
+}
+
+.group-father{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    font-weight: 400;
+    gap: 10px;
 }
