@@ -6,11 +6,13 @@ const cors = require("cors");
 const teacherRouter = require("./routes/teacherRouter");
 const student = require("./routes/studentRouter");
 const groupRouter  = require('./routes/groupRouter')
+const examRouter  = require('./routes/examRouter')
+
 dotenv.config();
 
 // Muhim malumotlarni env dan olib olish
-const port = process.env.PORT || 5000;
-const url = process.env.MONGO_URI;
+const port = process.env.PORT || 5001;
+const url = process.env.MONGO_URL;
 
 // MiddelWare
 app.use((req, res, next) => {
@@ -24,6 +26,7 @@ app.use(cors());
 app.use("/student", student);
 app.use("/teachers", teacherRouter);
 app.use('/group', groupRouter)
+app.use('/exam', examRouter)
 
 mongoose
   .connect(url)
