@@ -7,7 +7,7 @@ function ShowGroups() {
   const [examArray, setExamArray] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:5001/group')
+      .get('http://localhost:5000/group')
       .then((res) => {
         setExamArray(res.data)
       })
