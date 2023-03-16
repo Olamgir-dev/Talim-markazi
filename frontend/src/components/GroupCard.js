@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 function GroupCard(props) {
-    console.log(props.group);
     const { level, name, teacherId, time, _id, days } = props.group;
     return (
         <div>

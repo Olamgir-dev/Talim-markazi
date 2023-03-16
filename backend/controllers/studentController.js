@@ -1,10 +1,18 @@
 const Student = require("../models/studentModel");
+const jwt = require("jsonwebtoken");
+
+const createToken = (_id) => {
+  return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
+};
 
 // student login
 const login = async (req, res) => {
   try {
     const student = await Student.login(req);
-    res.status(200).json(student);
+    console.log(student);
+    const token = createToken(student._id);
+
+    res.status(200).json({ student: student, token: token });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
