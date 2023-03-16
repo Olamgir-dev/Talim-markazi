@@ -1,6 +1,5 @@
-
-const mongoose = require('mongoose');
-const validator = require("validator");
+const validator = require('validator');
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
 

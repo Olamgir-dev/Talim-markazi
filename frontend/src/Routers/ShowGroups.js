@@ -7,7 +7,7 @@ function ShowGroups() {
   const [examArray, setExamArray] = useState([])
   useEffect(() => {
     axios
-      .get('http://localhost:5001/group')
+      .get('http://localhost:5000/group')
       .then((res) => {
         setExamArray(res.data)
       })
@@ -19,7 +19,7 @@ function ShowGroups() {
     <div>
       {
         examArray.length > 0 ?
-          <div className='flex-div'>
+          <div className='group-father'>
             {examArray.map((group) => {
               return <GroupCard key={group._id} group={group} />
             })}
