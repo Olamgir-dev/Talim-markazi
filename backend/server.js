@@ -6,6 +6,8 @@ const cors = require("cors");
 const teacherRouter = require("./routes/teacherRouter");
 const student = require("./routes/studentRouter");
 const groupRouter  = require('./routes/groupRouter')
+const examRouter  = require('./routes/examRouter')
+
 dotenv.config();
 
 // Muhim malumotlarni env dan olib olish
@@ -24,6 +26,7 @@ app.use(cors());
 app.use("/student", student);
 app.use("/teachers", teacherRouter);
 app.use('/group', groupRouter)
+app.use('/exam', examRouter)
 
 mongoose
   .connect(url)
