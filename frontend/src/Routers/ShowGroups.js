@@ -19,7 +19,7 @@ function ShowGroups() {
     <div>
       {
         examArray.length > 0 ?
-          <div className='flex-div'>
+          <div className='group-father'>
             {examArray.map((group) => {
               return <GroupCard key={group._id} group={group} />
             })}
