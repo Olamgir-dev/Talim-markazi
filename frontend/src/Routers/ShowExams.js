@@ -6,7 +6,7 @@ function ShowExams() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/exam/show-exam`)
+      .get(`http://localhost:5001/exam/show-exam`)
       .then((res) => {
         setExams(res.data);
       })
@@ -29,9 +29,7 @@ function ShowExams() {
               <p className="card-text">Date: {new Date(api.date).toLocaleTimeString('en-US')}</p>
               <p className="card-text">Time: {api.time}</p>
               <p className="card-text">Duration: {api.duration}</p>
-              <a className="btn btn-outline-primary">
-                Question
-              </a>
+              <a className="btn btn-outline-primary">Question</a>
             </div>
           </div>
         );

@@ -5,6 +5,8 @@ import linkedin from '../Images/icons/linkedin.png'
 import github from '../Images/icons/github.png'
 import facebook from '../Images/icons/facebook.png'
 import axios from 'axios'
+// stylesheet import
+import '../sass/login.scss'
 
 function TeacherAdd() {
 
@@ -20,7 +22,7 @@ function TeacherAdd() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:5000/teachers/add', teacherInfo).then((res)=>{
+    axios.post('http://localhost:5001/teachers/add', teacherInfo).then((res)=>{
       console.log('qoshildi')
     }).catch((err) => {
       console.log('xatolik', err)
@@ -29,6 +31,7 @@ function TeacherAdd() {
 
   return (
     <div className='register-div'>
+      <div><img src="../assets/bg.jpg" alt="" /></div>
       <div className='container-register'>
         <div className='style-img'>
           <div className='style-for-1' id='div-1'></div>

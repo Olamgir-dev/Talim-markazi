@@ -11,11 +11,12 @@ const questionRouter  = require('./routes/questionRouter');
 
 dotenv.config();
 
+
 // Muhim malumotlarni env dan olib olish
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5001;
 
-const url = process.env.MONGO_URI;
+const url = process.env.MONGO_URL;
 
 // MiddelWare
 app.use((req, res, next) => {
