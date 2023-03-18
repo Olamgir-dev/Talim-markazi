@@ -12,7 +12,6 @@ import '../sass/login.scss'
 function StudentLogin() {
   const [user, setUser] = useState()
   const [error, setError] = useState()
-  console.log(error);
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -37,7 +36,6 @@ function StudentLogin() {
       <div className="login-left">
         <img src={bgImg} alt="" />
       </div>
-
       <div className="login-right">
         <Form onSubmit={handleSubmit} >
           <h1 >Log <span>in</span></h1>

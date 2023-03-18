@@ -11,6 +11,7 @@ import '../sass/login.scss'
 
 function TeacherLogin() {
   const [user, setUser] = useState()
+  const [error, setError] = useState()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -20,16 +21,14 @@ function TeacherLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('click');
     console.log(user);
-
-    axios.post("http://localhost:5001/teacher/login", user)
+    axios
+      .post("http://localhost:5001/student/login", user)
       .then((res) => {
-        console.log(res.data);
         dispatch(login(res.data))
         navigate('/')
       })
-      .catch((err) => console.log(err))
+      .catch((err) => setError(err.response.data.msg))
   }
 
   return (
@@ -37,7 +36,6 @@ function TeacherLogin() {
       <div className="login-left">
         <img src={bgImg} alt="" />
       </div>
-
       <div className="login-right">
         <Form onSubmit={handleSubmit} >
           <h1 >Log <span>in</span></h1>
@@ -45,7 +43,7 @@ function TeacherLogin() {
             <Form.Label className="form-label">Email address</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" onChange={handleChange} />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              {error && <p>{error}</p>}
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
