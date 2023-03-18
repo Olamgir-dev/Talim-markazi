@@ -10,6 +10,8 @@ import Layout from './components/Layout';
 import TeacherLogin from './Routers/TeacherLogin';
 import StudentLogin from './Routers/StudentLogin';
 import ShowExams from './Routers/ShowExams';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </>
   );
 }

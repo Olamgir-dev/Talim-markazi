@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import bgImg from '../assets/vecteezy_man-entering-cloud-server-data-password_4689082.jpg'
+import bgImg from '../assets/studentLogin.jpg'
 import axios from "axios";
 import { login } from "../redux/reducers/userSlice";
 // stylesheet import
@@ -11,6 +11,8 @@ import '../sass/login.scss'
 
 function StudentLogin() {
   const [user, setUser] = useState()
+  const [error, setError] = useState()
+  console.log(error);
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -20,16 +22,14 @@ function StudentLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('click');
     console.log(user);
-
-    axios.post("http://localhost:5001/student/login", user)
+    axios
+      .post("http://localhost:5001/student/login", user)
       .then((res) => {
-        console.log(res.data);
         dispatch(login(res.data))
         navigate('/')
       })
-      .catch((err) => console.log(err))
+      .catch((err) => setError(err.response.data.msg))
   }
 
   return (
@@ -43,14 +43,14 @@ function StudentLogin() {
           <h1 >Log <span>in</span></h1>
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label className="form-label">Email address</Form.Label>
-            <Form.Control name="email" type="email"  placeholder="Enter email" onChange={handleChange} />
+            <Form.Control name="email" type="email" placeholder="Enter email" onChange={handleChange} />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              {error && <p>{error}</p>}
             </Form.Text>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label className="form-label">Password</Form.Label>
-            <Form.Control name="password" type="password"  placeholder="Password"  onChange={handleChange} />
+            <Form.Control name="password" type="password" placeholder="Password" onChange={handleChange} />
           </Form.Group>
           <Form.Group className="mb-4" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Check me out" />
