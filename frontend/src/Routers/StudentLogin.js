@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import bgImg from '../assets/studentLogin.jpg'
+import { Form, Button } from "react-bootstrap"
 import axios from "axios";
 import { login } from "../redux/reducers/userSlice";
-// stylesheet import
-import '../sass/login.scss'
+import bgImg from '../assets/studentLogin.jpg'
 
 function StudentLogin() {
   const [user, setUser] = useState()
@@ -32,17 +29,18 @@ function StudentLogin() {
   }
 
   return (
-    <div className="teacher login-wrapper">
+    <div className="student login-wrapper">
       <div className="login-left">
         <img src={bgImg} alt="" />
       </div>
+
       <div className="login-right">
         <Form onSubmit={handleSubmit} >
-          <h1 >Log <span>in</span></h1>
+          <h1 >Log in</h1>
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label className="form-label">Email address</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" onChange={handleChange} />
-            <Form.Text className="text-muted">
+            <Form.Text className="text-danger">
               {error && <p>{error}</p>}
             </Form.Text>
           </Form.Group>

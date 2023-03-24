@@ -6,8 +6,6 @@ import Form from "react-bootstrap/Form";
 import bgImg from '../assets/teacherLogin.jpg'
 import axios from "axios";
 import { login } from "../redux/reducers/userSlice";
-// stylesheet import
-import '../sass/login.scss'
 
 function TeacherLogin() {
   const [user, setUser] = useState()
@@ -23,7 +21,7 @@ function TeacherLogin() {
     e.preventDefault()
     console.log(user);
     axios
-      .post("http://localhost:5000/student/login", user)
+      .post("http://localhost:5001/teacher/login", user)
       .then((res) => {
         dispatch(login(res.data))
         navigate('/')
@@ -42,7 +40,7 @@ function TeacherLogin() {
           <Form.Group className="mb-4" controlId="formBasicEmail">
             <Form.Label className="form-label">Email address</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" onChange={handleChange} />
-            <Form.Text className="text-muted">
+            <Form.Text className="text-danger">
               {error && <p>{error}</p>}
             </Form.Text>
           </Form.Group>

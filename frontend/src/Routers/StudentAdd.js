@@ -1,65 +1,105 @@
-import React,{useState} from 'react'
-import img2 from '../Images/svg/image2.svg'
-import google from '../Images/icons/google.png'
-import linkedin from '../Images/icons/linkedin.png'
-import github from '../Images/icons/github.png'
-import facebook from '../Images/icons/facebook.png'
-import {useNavigate} from 'react-router-dom'
-import axios from 'axios'
-  
+import React, { useState } from "react";
+import img2 from "../Images/svg/image2.svg";
+
+import google from "../Images/icons/google.png";
+import linkedin from "../Images/icons/linkedin.png";
+import github from "../Images/icons/github.png";
+import facebook from "../Images/icons/facebook.png";
+
 function StudentAdd() {
-  const [user, setUser] = useState({})
-  const navigate = useNavigate()
+  const [teacherInfo, setTeacherInfo] = useState({});
 
   const handleChange = (e) => {
-    setUser({...user, [e.target.name]: e.target.value})
-  }
+    e.preventDefault();
+    const name = e.target.name;
+
+    const value = e.target.value;
+  };
+
+  setTeacherInfo({ ...teacherInfo, [name]: value });
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    axios.post("http://localhost:5000/student/add", user)
+    axios
+      .post("http://localhost:5000/student/add", user)
       .then((res) => {
         console.log(res.data);
-        navigate('/')
+        navigate("/");
       })
-      .catch((err) => console.log(err))
-  }
+      .catch((err) => console.log(err));
+  };
+
   return (
-    <div className='register-div'>
-        <div className='container-register'>
-            <div className='style-img'>
-                <div className='style-for-1' id='div-1'></div>
-                <div className='style-for-1' id='div-2'></div>
-                <img src={img2} alt="404" />
+    <div className="registration-wrapper">
+      <div className="registration-left">
+        <img src={studentAddBg} alt="" />
+      </div>
+
+      <div className="registration-right">
+        <Form onSubmit={handleSubmit}>
+          <h1>Registration student's</h1>
+          <Form.Group className="mb-2" controlId="firstname">
+            <Form.Label className="form-label">Firstname</Form.Label>
+            <Form.Control
+              name="firstname"
+              type="firstname"
+              placeholder="firstname"
+              onChange={handleChange}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-2" controlId="lastname">
+            <Form.Label className="form-label">Lastname</Form.Label>
+            <Form.Control
+              name="lastname"
+              type="lastname"
+              placeholder="lastname"
+              onChange={handleChange}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="mb-2" controlId="formBasicEmail">
+            <Form.Label className="form-label">Email address</Form.Label>
+            <Form.Control
+              name="email"
+              type="email"
+              placeholder="Enter email"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-2" controlId="formBasicPassword">
+            <Form.Label className="form-label">Password</Form.Label>
+            <Form.Control
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className="mb-2" controlId="ielts">
+            <Form.Label className="form-label">English level</Form.Label>
+            <Form.Control
+              name="ielts"
+              type="number"
+              placeholder="IELTS"
+              onChange={handleChange}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Text className="text-danger">error</Form.Text>
+          <Form.Group>
+            <div className="social-media__icons">
+              <img src={google} alt="404" />
+              <img src={linkedin} alt="404" />
+              <img src={facebook} alt="404" />
+              <img src={github} alt="404" />
             </div>
-            <div className='inputs-for-div'>
-              <div className='text'>
-                <h1>Student<span>ADD</span></h1>
-              </div>
-              <form onSubmit={handleSubmit}>
-                <input type="text" name='firstname' placeholder='FirstName'onChange={handleChange} />
-                <input type="text" name='lastname' placeholder='Lastname'onChange={handleChange} />
-                <input type="email" name='email' placeholder='Email'onChange={handleChange} />
-                <input type="password" name='password' placeholder='Password'onChange={handleChange} />
-                <div className='text-social'>
-                  <div></div><p> or </p><div></div>
-                </div>
-                <div className='social-media-icons'>
-                  <img src={google} alt="404" />
-                  <img src={linkedin} alt="404" />
-                  <img src={github} alt="404" />
-                  <img src={facebook} alt="404" />
-                </div>
-                <button id='submit'>Submit</button>
-              </form>
-            </div>
-            <div className='text-for-style'>
-                <h1>Frontend<span>G6</span></h1>
-            </div>
-        </div>
+          </Form.Group>
+          <Button className="btn-grad" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </div>
     </div>
-  )
+  );
 }
 
-export default StudentAdd
+export default StudentAdd;

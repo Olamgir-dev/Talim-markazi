@@ -25,7 +25,7 @@ app.use(cors());
 
 // APIs
 app.use("/student", student);
-app.use("/teachers", teacherRouter);
+app.use("/teacher", teacherRouter);
 app.use('/group', groupRouter)
 app.use('/exam', examRouter)
 app.use('/questions', questionRouter)
