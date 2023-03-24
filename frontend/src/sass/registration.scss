@@ -1,16 +1,16 @@
-.login-wrapper {
+.registration-wrapper {
   width: 100%;
   height: 100vh;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
 
-  .login-left {
+  .registration-left {
     width: 100%;
     height: 100%;
     padding: 50px 0;
     display: flex;
     place-content: center;
-    // background-color: rgb(0, 191, 255);
+    // background-color: #ffdb00;
 
     img {
       width: 80%;
@@ -33,11 +33,10 @@
     }
   }
 
-  .login-right {
+  .registration-right {
     display: flex;
     justify-content: center;
     align-items: center;
-    // background-color: rgb(42, 253, 165);
 
     Form {
       width: 370px;
@@ -51,16 +50,35 @@
         margin-bottom: 16px;
         text-align: center;
         font-family: "Fredoka One";
-        color: #459096;
-        font-size: 54px;
+        font-size: 34px;
+        background: -webkit-linear-gradient(#26a0da 36%, #314755 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .social-media__icons {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        gap: 35px;
+        margin-bottom: 16px;
+
+        img {
+          transition: 0.3s;
+          cursor: pointer;
+        }
+      }
+
+      img:hover {
+        transform: scale(1.1);
       }
 
       .btn-grad {
         background-image: linear-gradient(
           to right,
-          #085078 0%,
-          #85d8ce 51%,
-          #085078 100%
+          #314755 0%,
+          #26a0da 51%,
+          #314755 100%
         );
         padding: 15px 45px;
         text-transform: uppercase;

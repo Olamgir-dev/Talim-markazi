@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 1342px) {
+  .register-div {
+    height: 100vh;
+
+    .container-register {
+      display: grid;
+
+      .style-img {
+        width: 100%;
+
+        #div-2 {
+          position: absolute;
+          overflow: hidden;
+          right: 0;
+          left: auto;
+          top: auto;
+          bottom: 0;
+        }
+      }
+
+      .inputs-for-div {
+        position: static;
+        margin: auto;
+        margin-bottom: 50px;
+      }
+
+      .text-for-style {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+
+        h1 {
+          font-size: 60px;
+          margin: 0;
+
+          span {
+            text-shadow: 5px 5px 10px gray;
+          }
+        }
+      }
+
+      .style-img {
+        img {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .register-div {
+    .container-register {
+      .inputs-for-div {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.flex-div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ota-div {
+  justify-content: center;
+  display: flex;
+  transition: 0.2s;
+  border-radius: 10px;
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
+  box-shadow: 0px 0px 0.3px -1px rgba(0, 0, 0, 0.112),
+    0px 0px 0.7px -1px rgba(0, 0, 0, 0.162),
+    0px 0px 1.4px -1px rgba(0, 0, 0, 0.2),
+    0px 0px 2.5px -1px rgba(0, 0, 0, 0.238),
+    0px 0px 4.6px -1px rgba(0, 0, 0, 0.288),
+    0px 0px 11px -1px rgba(0, 0, 0, 0.4);
+  width: 360px;
+
+  .card-body {
+    padding: 40px;
+  }
+
+  .btn-outline-primary {
+    cursor: pointer;
+    width: 100%;
+  }
+}
+.ota-div:hover {
+  box-shadow: 0 0 0 0;
+  align-items: center;
+  font-weight: 400;
+  gap: 10px;
+}
+
+.fix-div {
+  width: 300px;
+  height: 600px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.flex-button {
+  color: black;
+  position: absolute;
+  bottom: 30px;
+}
+
+.group-father {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 400;
+  gap: 10px;
+}
