@@ -52,9 +52,9 @@ const studentDelete = async (req, res) => {
     });
 };
 
-const getAllStudents = (req, res) => {
+const getAllStudents = async (req, res) => {
   try {
-    const students = Student.find();
+    const students = await Student.find();
     res.status(200).json(students);
   } catch (error) {
     res.status(400).json({ msg: error.message });
