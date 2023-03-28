@@ -40,7 +40,6 @@ function PostData(res) {
             icon: 'warning',
             title: err.response.data.msg
           })
-          // alert(err.response.data.msg);
         })
       resolve({
         status: true,
