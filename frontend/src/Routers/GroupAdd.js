@@ -33,7 +33,7 @@ function GroupAdd() {
     <div className="container mt-5">
       <div className="row">
         <div className="col-xl-3"></div>
-        <div className=" col-xl-6 mt-5 card">
+        <div className=" col-xl-6 mt-5 add-card card">
           <h1 className="text-center py-3">Add group</h1>
           <form onSubmit={(e) => handleSubmit(e)}>
             <label htmlFor="name">Group name</label>
