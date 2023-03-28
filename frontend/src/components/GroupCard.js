@@ -18,7 +18,7 @@ function GroupCard(props) {
                 }
             }
             axios
-                .put("http://localhost:5000/student/joingroup", { studentId: userData._id, groupId: props.group._id, config })
+                .put("http://localhost:5001/student/joingroup", { studentId: userData._id, groupId: props.group._id, config })
                 .then((res) => {
                     console.log(res);
                 })
@@ -51,7 +51,7 @@ function GroupCard(props) {
 
                     <p><span className='fw-bold'>Time :</span> {time} </p> 
                     <div className='d-flex justify-content-end'>
-                    <Button className='btn' >Join to group</Button>
+                    <Button className='btn' onClick={handleJoin}>Join to group</Button>
                     </div>
 
                 </Card.Body>
