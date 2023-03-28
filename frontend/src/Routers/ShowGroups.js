@@ -16,7 +16,8 @@ function ShowGroups() {
       })
   }, [])
   return (
-    <div>
+    <div className='container'>
+      <div className='row'>
       {
         examArray.length > 0 ?
           <div className='group-father'>
@@ -30,6 +31,7 @@ function ShowGroups() {
             </Card.Text>
           </>
       }
+      </div>
     </div>
   )
 }
