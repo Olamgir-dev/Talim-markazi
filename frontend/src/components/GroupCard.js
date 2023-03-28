@@ -51,7 +51,7 @@ function GroupCard(props) {
 
                     <p><span className='fw-bold'>Time :</span> {time} </p> 
                     <div className='d-flex justify-content-end'>
-                    <Button className='btn' >Join to group</Button>
+                    <Button className='btn' onClick={handleJoin} >Join to group</Button>
                     </div>
 
                 </Card.Body>
