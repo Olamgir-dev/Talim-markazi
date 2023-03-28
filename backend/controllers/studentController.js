@@ -42,4 +42,13 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { login, addStudent, joinGroup };
+const getAllStudents = (req, res) => {
+  try {
+    const students = Student.find();
+    res.status(200).json(students);
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+}
+
+module.exports = { login, addStudent, joinGroup, getAllStudents };
