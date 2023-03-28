@@ -61,4 +61,4 @@ const getAllStudents = (req, res) => {
   }
 }
 
-module.exports = { login, addStudent, joinGroup, getAllStudents };
+module.exports = { login, addStudent, joinGroup, studentDelete,getAllStudents };
