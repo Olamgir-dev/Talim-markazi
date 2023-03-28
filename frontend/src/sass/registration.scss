@@ -1,0 +1,99 @@
+.registration-wrapper {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+
+  .registration-left {
+    width: 100%;
+    height: 100%;
+    padding: 50px 0;
+    display: flex;
+    place-content: center;
+    // background-color: #ffdb00;
+
+    img {
+      width: 80%;
+      background: center;
+      object-fit: contain;
+
+      animation-name: pictureMove;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-duration: 2s;
+    }
+
+    @keyframes pictureMove {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(20px);
+      }
+    }
+  }
+
+  .registration-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    Form {
+      width: 370px;
+      height: auto;
+      display: grid;
+      align-items: center;
+      border-radius: 7px;
+      // background-color: #17acfb;
+
+      h1 {
+        margin-bottom: 16px;
+        text-align: center;
+        font-family: "Fredoka One";
+        font-size: 34px;
+        background: -webkit-linear-gradient(#26a0da 36%, #314755 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .social-media__icons {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        gap: 35px;
+        margin-bottom: 16px;
+
+        img {
+          transition: 0.3s;
+          cursor: pointer;
+        }
+      }
+
+      img:hover {
+        transform: scale(1.1);
+      }
+
+      .btn-grad {
+        background-image: linear-gradient(
+          to right,
+          #314755 0%,
+          #26a0da 51%,
+          #314755 100%
+        );
+        padding: 15px 45px;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        border: none;
+      }
+
+      .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -3,15 +3,16 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import TeacherAdd from './Routers/TeacherAdd';
 import StudentAdd from './Routers/StudentAdd';
-import "./sass/style.scss"
-import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.min"
 import GroupAdd from './Routers/GroupAdd';
 import ShowGroups from './Routers/ShowGroups';
 import Layout from './components/Layout';
 import TeacherLogin from './Routers/TeacherLogin';
 import StudentLogin from './Routers/StudentLogin';
 import ShowExams from './Routers/ShowExams';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// stylesheet
+import "./sass/main.scss"
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </>
   );
 }

@@ -5,19 +5,6 @@ const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 };
 
-// student login
-const login = async (req, res) => {
-  try {
-    const student = await Student.login(req);
-    console.log(student);
-    const token = createToken(student._id);
-
-    res.status(200).json({ student: student, token: token });
-  } catch (error) {
-    res.status(400).json({ msg: error.message });
-  }
-};
-
 const addStudent = async (req, res) => {
   try {
     const newStudent = await Student.addStudent(req);
@@ -36,6 +23,19 @@ const joinGroup = async (req, res) => {
       { new: true }
     );
     res.status(200).json(updatedStudent);
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+};
+
+// student login
+const login = async (req, res) => {
+  try {
+    const student = await Student.login(req);
+    console.log(student);
+    const token = createToken(student._id);
+
+    res.status(200).json({ student: student, token: token });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }

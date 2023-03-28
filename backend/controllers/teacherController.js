@@ -29,7 +29,7 @@ const addTeacher = (req, res) => {
 // Teacher Login
 const loginTeacher = async (req, res) =>{
   try{
-    const teacher = await Teacher.login(req);
+    const teacher = await teacherModel.login(req);
     res.status(200).json(teacher);
   }catch(error){
     res.status(400).json({msg: error.message});
