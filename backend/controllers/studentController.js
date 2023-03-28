@@ -38,8 +38,29 @@ const login = async (req, res) => {
 
     res.status(200).json({ student: student, token: token });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ msg: error.message });
   }
 };
+const studentDelete = async (req, res) => {
+  const studentId = req.params.id;
+  Student.deleteOne({ _id: studentId },)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json({ msg: err.message });
+    });
+};
 
-module.exports = { login, addStudent, joinGroup };
+const getAllStudents = async (req, res) => {
+  try {
+    const students = await Student.find();
+    res.status(200).json(students);
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+}
+
+module.exports = { login, addStudent, joinGroup, studentDelete,getAllStudents };
+

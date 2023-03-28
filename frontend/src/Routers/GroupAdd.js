@@ -5,7 +5,7 @@ import linkedin from '../Images/icons/linkedin.png'
 import github from '../Images/icons/github.png'
 import facebook from '../Images/icons/facebook.png'
 // stylesheet
-import { Form, Button } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 import { useForm } from 'react-hook-form'
 import { PostData } from './axios'
 
@@ -26,7 +26,7 @@ function GroupAdd() {
         <img src={groupAddBg} alt="" />
       </div>
       <div className="registration-right">
-        <Form onSubmit={handleSubmit(onSubmit)} >
+        <Form.Group onSubmit={handleSubmit(onSubmit)} >
           <h1 >Registration teacher's</h1>
           <Form.Group className='mb-2' controlId='firstname'>
             <Form.Label className='form-label'>Firstname</Form.Label>
@@ -63,14 +63,14 @@ function GroupAdd() {
               <img src={facebook} alt="404" />
               <img src={github} alt="404" />
             </div>
+            <button id="button" className="btn py-2 mb-3 w-100">
+              ADD GROUP
+            </button>
           </Form.Group>
-          <Button className="btn-grad" type="submit" >
-            Submit
-          </Button>
-        </Form>
+        </Form.Group>
       </div>
-    </div>
-  )
+    </div >
+  );
 }
 
-export default GroupAdd
+export default GroupAdd;

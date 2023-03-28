@@ -21,7 +21,7 @@ function StudentAdd() {
   };
 
   return (
-    <div className='registration-wrapper'>
+    <div className="registration-wrapper">
       <div className="registration-left">
         <img src={studentAddBg} alt="" />
       </div>
@@ -57,20 +57,20 @@ function StudentAdd() {
             </Form.Text>}
           </Form.Group>
           <Form.Group>
-            <div className='social-media__icons'>
+            <div className="social-media__icons">
               <img src={google} alt="404" />
               <img src={linkedin} alt="404" />
               <img src={facebook} alt="404" />
               <img src={github} alt="404" />
             </div>
           </Form.Group>
-          <Button className="btn-grad" type="submit" >
+          <Button className="btn-grad" type="submit">
             Submit
           </Button>
         </Form>
       </div>
     </div>
-  )
+  );
 }
 
 export default StudentAdd
