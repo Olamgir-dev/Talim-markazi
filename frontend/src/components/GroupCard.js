@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 function GroupCard(props) {
     const { level, name, teacherId, time, _id, days } = props.group;
     return (
-        <div className='col-xl-3'>
+        <div className='col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-3'>
             <Card className='card'>
                 <Card.Img className='card-head' variant="top" src="https://i.ibb.co/yB0MhK4/photo-2022-07-14-12-53-10.jpg" />
                 <Card.Body>
