@@ -7,5 +7,6 @@ router.post('/add', addStudent)
 router.post('/login',login)
 router.put ('/joingroup', joinGroup)
 router.delete("/:id",studentDelete)
+router.get('/', getAllStudents)
 
 module.exports = router
