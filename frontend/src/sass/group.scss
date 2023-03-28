@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body  {
+  background:linear-gradient(to right, rgb(17, 17, 173));
+}
+.add-group {
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+  .form-div {
+    background-color: rgb(255, 174, 0);
+    padding: 0 20px  0;
+    width: 28vw;
+    height: 78vh;
+    border-radius: 20px;
+    
+    input ,select {
+        margin-top: 30px;
+    }
+
+    label {
+        font-size: 25px;
+        font-weight: bolder;
+        margin-top: 10px;
+        color: white;
+    }
+    .parent-center {
+        display: flex;
+        justify-content: space-evenly; 
+    } 
+  }
+}
