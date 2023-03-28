@@ -9,14 +9,18 @@ import facebook from "../Images/icons/facebook.png";
 function StudentAdd() {
   const [teacherInfo, setTeacherInfo] = useState({});
 
+  const [studentInfo, setStudentInfo] = useState({})
+
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
 
     const value = e.target.value;
+    
+      setTeacherInfo({ ...teacherInfo, [name]: value });
+        setStudentInfo({ ...studentInfo, [name]: value });
   };
-
-  setTeacherInfo({ ...teacherInfo, [name]: value });
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +31,6 @@ function StudentAdd() {
         console.log(res.data);
         navigate("/");
       })
-      .catch((err) => console.log(err));
   };
 
   return (
