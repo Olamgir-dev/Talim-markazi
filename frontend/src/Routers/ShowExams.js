@@ -6,7 +6,7 @@ function ShowExams() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/exam/show-exam`)
+      .get(`http://localhost:5001/exam/show-exam`)
       .then((res) => {
         setExams(res.data);
       })

@@ -1,32 +1,33 @@
 import React, { useState } from "react";
 import img2 from "../Images/svg/image2.svg";
-
+import axios from "axios";
+import {useNavigate} from 'react-router-dom'
+import studentAddBg from '../assets/studentAdd.jpg'
 import google from "../Images/icons/google.png";
 import linkedin from "../Images/icons/linkedin.png";
 import github from "../Images/icons/github.png";
 import facebook from "../Images/icons/facebook.png";
+import { Button, Form } from "react-bootstrap";
 
 function StudentAdd() {
-  const [teacherInfo, setTeacherInfo] = useState({});
 
   const [studentInfo, setStudentInfo] = useState({})
-
+const navigate = useNavigate()
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
 
     const value = e.target.value;
     
-      setTeacherInfo({ ...teacherInfo, [name]: value });
         setStudentInfo({ ...studentInfo, [name]: value });
   };
-  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/student/add", user)
+      .post("http://localhost:5001/student/add", studentInfo)
       .then((res) => {
         console.log(res.data);
         navigate("/");
