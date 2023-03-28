@@ -13,22 +13,23 @@ import axios from 'axios'
 
 function StudentAdd() {
 
-  const [teacherInfo, setTeacherInfo] = useState({})
+  const [studentInfo, setStudentInfo] = useState({})
 
   const handleChange = (e) => {
     e.preventDefault()
     const name = e.target.name;
     const value = e.target.value;
 
-    setTeacherInfo({ ...teacherInfo, [name]: value });
+    setStudentInfo({ ...studentInfo, [name]: value });
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:5001/student/add', teacherInfo)
+      .post('http://localhost:5001/student/add', studentInfo)
       .then((res) => {
         console.log('registration is complete')
+        console.log(res.data);
       }).catch((err) => {
         console.log('There was an error registering', err)
       })
