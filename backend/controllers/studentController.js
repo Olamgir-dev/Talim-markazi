@@ -41,5 +41,15 @@ const login = async (req, res) => {
     res.status(400).json({ msg: error.message });
   }
 };
+const studentDelete = async (req, res) => {
+  const studentId = req.params.id;
+  Student.deleteOne({ _id: studentId },)
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).json({ msg: err.message });
+    });
+};
 
-module.exports = { login, addStudent, joinGroup };
+module.exports = { login, addStudent, joinGroup,studentDelete };
