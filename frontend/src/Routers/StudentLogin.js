@@ -22,6 +22,7 @@ function StudentLogin() {
     axios
       .post("http://localhost:5001/student/login", user)
       .then((res) => {
+        console.log(res);
         dispatch(login(res.data))
         navigate('/')
       })

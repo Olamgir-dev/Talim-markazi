@@ -5,9 +5,9 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const teacherRouter = require("./routes/teacherRouter");
 const student = require("./routes/studentRouter");
-const groupRouter  = require('./routes/groupRouter')
-const examRouter  = require('./routes/examRouter');
-const questionRouter  = require('./routes/questionRouter');
+const groupRouter = require('./routes/groupRouter')
+const examRouter = require('./routes/examRouter');
+const questionRouter = require('./routes/questionRouter');
 
 dotenv.config();
 
