@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Navbar() {
+function AdminNavbar() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light fixed-top   bg-body-tertiary" >
             <div className="container-fluid">
@@ -32,11 +32,8 @@ function Navbar() {
                         </li>
                     </ul> */}
                     <ul className="d-flex mb-2 mb-lg-0  nav  me-0">
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Admin Login</Link>
-                        </li>
-                        <li className='nav-item'><Link className="nav-link" to="/student-login">Student Login</Link></li>
-                        <li className='nav-item'><Link className="nav-link" to="/teacher-login">Teacher Login</Link></li>
+                        <li className='nav-item'><Link className="nav-link" to="/student-add">Student Login</Link></li>
+                        <li className='nav-item'><Link className="nav-link" to="/teacher-add">Teacher Login</Link></li>
                     </ul>
                 </div>
             </div>
@@ -44,4 +41,4 @@ function Navbar() {
     )
 }
 
-export default Navbar
+export default AdminNavbar
