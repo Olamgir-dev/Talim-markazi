@@ -37,6 +37,7 @@ const login = async (req, res) => {
 
     res.status(200).json({ student: student, token: token });
   } catch (error) {
+    console.log(error);
     res.status(400).json({ msg: error.message });
   }
 };
