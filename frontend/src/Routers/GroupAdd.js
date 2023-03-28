@@ -16,7 +16,7 @@ function GroupAdd() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/group/add", group)
+      .post("http://localhost:5001/group/add", group)
       .then((res) => {
         Swal.fire(
           "Group successfully added",
