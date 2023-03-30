@@ -29,7 +29,6 @@ const studentSchema = mongoose.Schema({
   },
 });
 
-
 studentSchema.statics.addStudent = async function (req) {
   const { email, password } = req.body;
 
@@ -45,16 +44,12 @@ studentSchema.statics.addStudent = async function (req) {
     throw Error("Bunday email mavjud");
   }
 
-
   const salt = await bcrypt.genSalt(10);
   const encryptedPassword = await bcrypt.hash(password, salt);
 
-
-  const newStudent = await this.create({...req.body,password: encryptedPassword, });
+  const newStudent = await this.create({ ...req.body, password: encryptedPassword, });
   return newStudent;
 };
-
-
 
 studentSchema.statics.login = async function (req) {
   const email = req.body.email;

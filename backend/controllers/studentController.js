@@ -10,6 +10,7 @@ const addStudent = async (req, res) => {
     const newStudent = await Student.addStudent(req);
     res.status(200).json(newStudent);
   } catch (error) {
+    
     res.status(400).json({ msg: error.message });
   }
 };
@@ -52,13 +53,14 @@ const studentDelete = async (req, res) => {
     });
 };
 
-const getAllStudents = (req, res) => {
+const getAllStudents = async (req, res) => {
   try {
-    const students = Student.find();
+    const students = await Student.find();
     res.status(200).json(students);
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
 }
 
-module.exports = { login, addStudent, joinGroup, getAllStudents,studentDelete };
+module.exports = { login, addStudent, joinGroup, studentDelete,getAllStudents };
+
