@@ -20,7 +20,7 @@ function StudentLogin() {
     e.preventDefault()
     console.log(user);
     axios
-      .post("http://localhost:5000/student/login", user)
+      .post("http://localhost:5001/student/login", user)
       .then((res) => {
         console.log(res);
         dispatch(login(res.data))
