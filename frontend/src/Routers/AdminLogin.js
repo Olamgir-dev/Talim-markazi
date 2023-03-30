@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import bgImg from '../assets/teacherLogin.jpg'
-import axios from "axios";
+import adminBg from '../assets/adminBg.jpg'
 import { login } from "../redux/reducers/userSlice";
 
 function AdminLogin() {
@@ -31,9 +30,9 @@ function AdminLogin() {
 
   return (
     <div className="teacher login-wrapper">
-      {/* <div className="login-left">
-        <img src={bgImg} alt="" />
-      </div> */}
+      <div className="login-left">
+        <img src={adminBg} alt=""/>
+      </div>
       <div className="login-right">
         <Form onSubmit={handleSubmit} >
           <h1 >Log <span>in</span></h1>
