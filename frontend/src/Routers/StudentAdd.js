@@ -18,6 +18,27 @@ function StudentAdd() {
       data: data,
     }
     PostData(res);
+
+  const [studentInfo, setStudentInfo] = useState({})
+const navigate = useNavigate()
+  const handleChange = (e) => {
+    e.preventDefault();
+    const name = e.target.name;
+
+    const value = e.target.value;
+    
+        setStudentInfo({ ...studentInfo, [name]: value });
+  };
+  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .post("http://localhost:5001/student/add", studentInfo)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/");
+      })
   };
 
   return (
@@ -72,5 +93,5 @@ function StudentAdd() {
     </div>
   );
 }
-
+}
 export default StudentAdd
