@@ -8,7 +8,7 @@ const student = require("./routes/studentRouter");
 const groupRouter  = require('./routes/groupRouter')
 const examRouter  = require('./routes/examRouter');
 const questionRouter  = require('./routes/questionRouter');
-
+const rateRouter = require('./routes/rateRouter');
 dotenv.config();
 
 // Muhim malumotlarni env dan olib olish
@@ -29,6 +29,8 @@ app.use("/teacher", teacherRouter);
 app.use('/group', groupRouter)
 app.use('/exam', examRouter)
 app.use('/questions', questionRouter)
+app.use('/rates', rateRouter)
+
 
 mongoose
   .connect(url)

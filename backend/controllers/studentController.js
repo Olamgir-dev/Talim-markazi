@@ -9,7 +9,7 @@ const addStudent = async (req, res) => {
   try {
     const newStudent = await Student.addStudent(req);
     res.status(200).json(newStudent);
-  } catch (error) {
+  } catch (error) { 
     res.status(400).json({ msg: error.message });
   }
 };
