@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.add-card {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+}
+.text-center {
+  font-family: "Fredoka One";
+  color: white;
+}
+
+label {
+  font-size: 18px;
+  color: white;
+  font-family: "Fredoka One";
+}
+
+#button {
+  background-color: white;
+  color: rgba(37, 37, 122, 0.834);
+  font-size: 20px;
+  font-family: "Fredoka One";
+}

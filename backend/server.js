@@ -12,8 +12,10 @@ const rateRouter = require('./routes/rateRouter');
 dotenv.config();
 
 // Muhim malumotlarni env dan olib olish
+
 const port = process.env.PORT || 5001;
-const url = process.env.MONGO_URL;
+
+const url = process.env.MONGO_URI;
 
 // MiddelWare
 app.use((req, res, next) => {

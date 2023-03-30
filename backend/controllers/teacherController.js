@@ -12,18 +12,14 @@ const getTeacher = async (req, res) => {
 };
 
 // Add a teacher
-const addTeacher = (req, res) => {
-  const teacher = new teacherModel(req.body);
-  teacher
-    .save()
-    .then((result) => {
-      console.log(result);
-      res.status(200).json(result);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json({ error: err.message });
-    });
+const addTeacher = async(req, res) => {
+  try {
+    const newTeacher = await teacherModel.addTeacher(req);
+    res.status(200).json(newTeacher);
+  } catch (error) {
+
+    res.status(400).json({ msg: error.message });
+  }
 };
 
 // Teacher Login
