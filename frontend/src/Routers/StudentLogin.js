@@ -24,7 +24,7 @@ function StudentLogin() {
       .then((res) => {
         console.log(res);
         dispatch(login(res.data))
-        navigate('/')
+        navigate('/student')
       })
       .catch((err) => setError(err.response.data.msg))
   }
