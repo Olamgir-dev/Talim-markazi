@@ -18,19 +18,17 @@ function ShowGroups() {
   return (
     <div className='container'>
       <div className='row'>
-      {
-        examArray.length > 0 ?
-          <div className='group-father'>
-            {examArray.map((group) => {
+        {
+          examArray.length > 0 ?
+            <>{examArray.map((group) => {
               return <GroupCard key={group._id} group={group} />
-            })}
-          </div>
-          : <>
-            <Card.Text>
-              Loading...
-            </Card.Text>
-          </>
-      }
+            })}</>
+            : <>
+              <Card.Text>
+                Loading...
+              </Card.Text>
+            </>
+        }
       </div>
     </div>
   )

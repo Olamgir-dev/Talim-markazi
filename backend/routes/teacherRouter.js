@@ -1,5 +1,5 @@
 const express = require("express");
-const { addTeacher, getTeacher, loginTeacher} = require("../controllers/teacherController");
+const { addTeacher, getTeacher, loginTeacher, showExamScore } = require("../controllers/teacherController");
 
 const router = express.Router();
 
@@ -7,5 +7,6 @@ const router = express.Router();
 router.get("/", getTeacher);
 router.post("/add", addTeacher);
 router.post("/login", loginTeacher);
+router.get('/showExamScore/:groupId', showExamScore)
 
 module.exports = router;
