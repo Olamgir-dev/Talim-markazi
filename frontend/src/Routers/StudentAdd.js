@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useNavigate } from 'react'
 import { useForm } from "react-hook-form";
 import studentAddBg from '../assets/studentAdd.jpg'
 import google from '../Images/icons/google.png'
@@ -8,6 +8,7 @@ import facebook from '../Images/icons/facebook.png'
 // stylesheet
 import { Form, Button } from "react-bootstrap"
 import { PostData } from './axios';
+import axios from 'axios';
 
 function StudentAdd() {
   // hook form
@@ -19,8 +20,8 @@ function StudentAdd() {
     }
     PostData(res);
 
-    const [studentInfo, setStudentInfo] = useState({})
-    const navigate = useNavigate()
+    const [studentInfo, setStudentInfo] = useState({});
+    const navigate = useNavigate();
     const handleChange = (e) => {
       e.preventDefault();
       const name = e.target.name;
