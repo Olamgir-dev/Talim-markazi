@@ -11,6 +11,9 @@ import { PostData } from './axios';
 import axios from 'axios';
 
 function StudentAdd() {
+  const [studentInfo, setStudentInfo] = useState({});
+  const navigate = useNavigate();
+  
   // hook form
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
@@ -20,8 +23,6 @@ function StudentAdd() {
     }
     PostData(res);
 
-    const [studentInfo, setStudentInfo] = useState({});
-    const navigate = useNavigate();
     const handleChange = (e) => {
       e.preventDefault();
       const name = e.target.name;
