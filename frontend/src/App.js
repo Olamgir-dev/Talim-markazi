@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import Home from './pages/Home';
 import TeacherAdd from './Routers/TeacherAdd';
@@ -17,8 +17,18 @@ import AdminLogin from './Routers/AdminLogin';
 import AdminLayout from './components/AdminLayout';
 import TeacherLayout from './components/TeacherLayout';
 import StudentLayout from './components/StudentLayout';
+import { useDispatch } from 'react-redux';
+import { login } from './redux/reducers/userSlice';
+import CreateExam from './Routers/CreateExam';
 
 function App() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'));
+    if (user) dispatch(login(user));
+    else dispatch(null);
+  }, []);
+
   return (
     <>
       <BrowserRouter>
@@ -34,10 +44,10 @@ function App() {
           </Route>
           <Route path='/teacher' element={<TeacherLayout />}>
             <Route index element={<GroupAdd />} />
+            <Route path='create-exam' element={<CreateExam />} />
           </Route>
           <Route path='/student' element={<StudentLayout />}>
             <Route index element={<ShowGroups />} />
-            <Route path='exams' element={<ShowExams />} />
           </Route>
         </Routes>
       </BrowserRouter>

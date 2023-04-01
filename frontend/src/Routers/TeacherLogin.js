@@ -24,7 +24,7 @@ function TeacherLogin() {
       .post("http://localhost:5001/teacher/login", user)
       .then((res) => {
         dispatch(login(res.data))
-        navigate('/')
+        navigate('/teacher')
       })
       .catch((err) => setError(err.response.data.msg))
   }

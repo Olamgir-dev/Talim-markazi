@@ -4,7 +4,6 @@ import google from '../Images/icons/google.png'
 import linkedin from '../Images/icons/linkedin.png'
 import github from '../Images/icons/github.png'
 import facebook from '../Images/icons/facebook.png'
-// stylesheet
 import { Form } from "react-bootstrap"
 import { useForm } from 'react-hook-form'
 import { PostData } from './axios'
