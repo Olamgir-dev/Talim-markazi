@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(cors());
 
+app.use('/uploads',express.static('uploads'))
 // APIs
 app.use("/student", student);
 app.use("/teacher", teacherRouter);
