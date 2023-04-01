@@ -18,6 +18,7 @@ function AdminLogin() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    navigate("/admin")
     /*
     axios
       .post("http://localhost:5001/teacher/login", user)

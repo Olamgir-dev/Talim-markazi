@@ -31,6 +31,7 @@ function Navbar() {
                             <Link className="nav-link " to="/exams" >Show Exams</Link>
                         </li>
                     </ul> */}
+
                     <ul className="d-flex mb-2 mb-lg-0  nav  me-0">
                         <li className="nav-item">
                             <Link className="nav-link active" aria-current="page" to="/">Admin Login</Link>

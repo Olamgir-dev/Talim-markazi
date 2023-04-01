@@ -12,7 +12,7 @@ const getTeacher = async (req, res) => {
 };
 
 // Add a teacher
-const addTeacher = async(req, res) => {
+const addTeacher = async (req, res) => {
   try {
     const newTeacher = await teacherModel.addTeacher(req);
     res.status(200).json(newTeacher);
@@ -23,13 +23,24 @@ const addTeacher = async(req, res) => {
 };
 
 // Teacher Login
-const loginTeacher = async (req, res) =>{
-  try{
+const loginTeacher = async (req, res) => {
+  try {
     const teacher = await teacherModel.login(req);
     res.status(200).json(teacher);
-  }catch(error){
-    res.status(400).json({msg: error.message});
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
   }
 };
 
-module.exports = { getTeacher, addTeacher, loginTeacher };
+//Show student's scores
+const showExamScore = async (req, res) => {
+  const groupId = req.params.groupId
+  try {
+    const students = await studentModel.find({ groupId: groupId })
+    res.status(200).json(students);
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+}
+
+module.exports = { getTeacher, addTeacher, loginTeacher, showExamScore };
