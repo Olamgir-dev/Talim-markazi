@@ -20,6 +20,7 @@ import StudentLayout from './components/StudentLayout';
 import { useDispatch } from 'react-redux';
 import { login } from './redux/reducers/userSlice';
 import CreateExam from './Routers/CreateExam';
+import CreateQuestion from './Routers/CreateQuestion';
 
 function App() {
   const dispatch = useDispatch()
@@ -45,6 +46,7 @@ function App() {
           <Route path='/teacher' element={<TeacherLayout />}>
             <Route index element={<GroupAdd />} />
             <Route path='create-exam' element={<CreateExam />} />
+            <Route path='create-question' element={<CreateQuestion />} />
           </Route>
           <Route path='/student' element={<StudentLayout />}>
             <Route index element={<ShowGroups />} />
